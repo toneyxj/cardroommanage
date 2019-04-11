@@ -1,0 +1,35 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xj.mainframe" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application android:allowBackup="true"
+        android:supportsRtl="true">
+        <meta-data
+            android:name="com.xj.mainframe.utils.okGlideProgress.XjGlideModule"
+
+            android:value="GlideModule" />
+
+        <activity android:name=".webX5.BrowserActivity"
+            android:screenOrientation="portrait"
+            android:process="com.xj.webBrowser"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+
+        <!--<service android:name=".base.InitializeService"/>-->
+        <activity android:name=".corp.CorpActivity"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>

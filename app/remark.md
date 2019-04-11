@@ -1,0 +1,1 @@
+Ctrl+Shift+A / Mac：command+shft+A 快捷键，并输入Image Asset：制作logo
