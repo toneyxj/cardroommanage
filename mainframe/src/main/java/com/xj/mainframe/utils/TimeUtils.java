@@ -22,6 +22,7 @@ public class TimeUtils {
         return getTimeShowString(Long.parseLong(time)*1000,false);
     }
     public static String getTimeShowString(long milliseconds, boolean abbreviate) {
+        if (milliseconds<=0)return "";
         String dataString = "";
         String timeStringBy24 = "";
 
@@ -76,6 +77,12 @@ public class TimeUtils {
         calendar.setTime(date);
         int intWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         return weekDaysName[intWeek];
+    }
+
+    public static int getWeekof(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        return calendar.get(Calendar.DAY_OF_WEEK) - 1;
     }
     /**
      * 判断两个日期是否在同一周

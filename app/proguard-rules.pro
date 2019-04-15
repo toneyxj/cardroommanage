@@ -158,7 +158,19 @@
 
 #其余混淆代码
 
+#lite数据库框架
+-keep class org.litepal.** {
+    *;
+}
 
+-keep class * extends org.litepal.crud.DataSupport {
+    *;
+}
+
+-keep class * extends org.litepal.crud.LitePalSupport {
+    *;
+}
+#结束
 
 #忽略警告
 -ignorewarnings

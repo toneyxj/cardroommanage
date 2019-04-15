@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.xj.mainframe.view.extendView.AlphaTextview
+            android:id="@+id/state"
+            style="@style/textview_more"
+            android:text="当前状态"/>
+        <View
+            style="@style/line_view_ver"/>
+
+        <com.xj.mainframe.view.extendView.AlphaTextview
+            android:id="@+id/source"
+            style="@style/textview_more"
+            android:text="来源"/>
+        <View
+            style="@style/line_view_ver"/>
+        <com.xj.mainframe.view.extendView.AlphaTextview
+            android:id="@+id/item_style"
+            style="@style/textview_more"
+            android:text="项目类别"/>
+        <View
+            style="@style/line_view_ver"/>
+
+
+        <android.support.design.widget.TextInputLayout style="@style/input_style">
+
+            <com.xj.mainframe.view.BaseView.XJEditeView
+                android:id="@+id/game_name"
+                style="@style/input_text"
+                android:hint="请输入麻将桌代号"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout style="@style/input_style">
+
+            <com.xj.mainframe.view.BaseView.XJEditeView
+                android:id="@+id/money"
+                style="@style/input_text"
+                android:hint="请输入金额"
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout style="@style/input_style">
+
+            <com.xj.mainframe.view.BaseView.XJEditeView
+                android:id="@+id/time"
+                style="@style/input_text"
+                android:hint="请输入时间（单位小时）"
+                android:inputType="numberDecimal" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout style="@style/input_style">
+
+            <com.xj.mainframe.view.BaseView.XJEditeView
+                android:id="@+id/user_name"
+                style="@style/input_text"
+                android:hint="玩家姓名"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout style="@style/input_style">
+
+            <com.xj.mainframe.view.BaseView.XJEditeView
+                android:id="@+id/user_phone"
+                style="@style/input_text"
+                android:hint="玩家电话"
+                android:inputType="phone" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+</ScrollView>

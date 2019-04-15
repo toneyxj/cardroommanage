@@ -31,6 +31,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<SmartV
     private boolean mOpenAnimationEnable = true;
     private AdapterView.OnItemClickListener mListener;
 
+    public List<T> getList(){
+        return mList;
+    }
+
     public BaseRecyclerAdapter(@LayoutRes int layoutId) {
         setHasStableIds(false);
         this.mList = new ArrayList<>();

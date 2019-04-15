@@ -16,11 +16,11 @@ import com.xj.mainframe.utils.GlideUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SmartViewHolder extends RecyclerView.ViewHolder  {
+public class SmartViewHolder extends RecyclerView.ViewHolder {
 
     private final AdapterView.OnItemClickListener mListener;
     private int mPosition = -1;
-    private Map<Integer,View> views=new HashMap<>();
+    private Map<Integer, View> views = new HashMap<>();
 
     public SmartViewHolder(View itemView, AdapterView.OnItemClickListener mListener) {
         super(itemView);
@@ -49,12 +49,12 @@ public class SmartViewHolder extends RecyclerView.ViewHolder  {
     }
 
 
-    private XJOnClickListener clickListener=new XJOnClickListener() {
+    private XJOnClickListener clickListener = new XJOnClickListener() {
         @Override
         public void onclickView(View view) {
             if (mListener != null) {
                 int position = getAdapterPosition();
-                if(position >= 0){
+                if (position >= 0) {
                     mListener.onItemClick(null, view, position, getItemId());
                 } else if (mPosition > -1) {
                     mListener.onItemClick(null, view, mPosition, getItemId());
@@ -62,17 +62,18 @@ public class SmartViewHolder extends RecyclerView.ViewHolder  {
             }
         }
     };
-    private View findViewById(int id) {
-        if (id==0)return itemView;
-        View view=null;
+
+    public View findViewById(int id) {
+        if (id == 0) return itemView;
+        View view = null;
         try {
-            view=views.get(id);
-            if (null==view){
-                 view=itemView.findViewById(id);
+            view = views.get(id);
+            if (null == view) {
+                view = itemView.findViewById(id);
             }
-        }catch ( Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            view=itemView.findViewById(id);
+            view = itemView.findViewById(id);
         }
         return view;
     }
@@ -108,10 +109,22 @@ public class SmartViewHolder extends RecyclerView.ViewHolder  {
         }
         return this;
     }
-    public SmartViewHolder netImage(int id, String netImage){
+
+    public SmartViewHolder visible(int id, boolean visible) {
+        View view = findViewById(id);
+        view.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        return this;
+    }
+    public SmartViewHolder visibleGone(int id, boolean gone) {
+        View view = findViewById(id);
+        view.setVisibility(gone ? View.VISIBLE : View.GONE);
+        return this;
+    }
+
+    public SmartViewHolder netImage(int id, String netImage) {
         View view = findViewById(id);
         if (view instanceof ImageView) {
-            GlideUtils.getInstance().loadImage(view.getContext(),((ImageView) view),netImage);
+            GlideUtils.getInstance().loadImage(view.getContext(), ((ImageView) view), netImage);
         }
         return this;
     }

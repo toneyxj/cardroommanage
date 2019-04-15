@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioButton
+        android:id="@+id/is_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:padding="12dp"
+        android:text="是否是机麻分类"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        style="@style/input_style">
+
+        <com.xj.mainframe.view.BaseView.XJEditeView
+            android:id="@+id/name"
+            style="@style/input_text"
+            android:hint="请输入分类名"
+            android:inputType="text"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        style="@style/input_style">
+
+        <com.xj.mainframe.view.BaseView.XJEditeView
+            android:id="@+id/price"
+            style="@style/input_text"
+            android:hint="请输入价格"
+            android:inputType="numberDecimal"/>
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>

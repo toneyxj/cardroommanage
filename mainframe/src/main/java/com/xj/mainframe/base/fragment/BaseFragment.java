@@ -25,7 +25,6 @@ public abstract class BaseFragment extends Fragment implements FragmentInterface
     private View rootView;
     private boolean isFinish;
     private boolean isShow;
-    private int i=0;
 
     @Override
     public View getRootView() {
@@ -53,7 +52,6 @@ public abstract class BaseFragment extends Fragment implements FragmentInterface
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        APPLog.e("onCreateView"+"i="+i++);
         rootView = inflater.inflate(getLayoutID(), container, false);
         initView(rootView);
         return rootView;

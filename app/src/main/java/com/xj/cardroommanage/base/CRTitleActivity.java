@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 
 import com.xj.cardroommanage.R;
 import com.xj.mainframe.base.activity.BaseActivity;
+import com.xj.mainframe.utils.StatusBarUtil;
 import com.xj.mainframe.view.listener.TitleInterface;
 import com.xj.mainframe.view.otherView.TitleView;
 
@@ -27,6 +28,8 @@ public abstract class CRTitleActivity extends CRACtivity implements TitleInterfa
     public void initView() {
         title_view = findViewById(R.id.title_view);
         title_view.setTitleModel(getTitleMode());
+        setStatusView(title_view);
+
         View.inflate(this, getContentLayout(), findViewById(R.id.title_layout));
     }
 

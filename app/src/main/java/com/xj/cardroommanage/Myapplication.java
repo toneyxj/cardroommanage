@@ -6,6 +6,9 @@ import com.xj.mainframe.BaseApplication;
 import com.xj.mainframe.base.InitializeService;
 import com.xj.mainframe.configer.ToastUtils;
 
+import org.litepal.LitePal;
+
+
 public class Myapplication extends BaseApplication {
     static {
         System.loadLibrary("native-lib");
@@ -18,6 +21,7 @@ public class Myapplication extends BaseApplication {
 //注册提示
         InitializeService.start(this,MyInitService.class);
         ToastUtils.getInstance().initToast(this);
+        LitePal.initialize(this);
         Debug.stopMethodTracing();
     }
 }

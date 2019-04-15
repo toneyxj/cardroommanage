@@ -20,4 +20,9 @@ public class XJEditeView extends EditText {
     public XJEditeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
+    public void setEditeText(String value){
+        if (value==null)value="";
+        setText(value);
+    }
 }

@@ -25,4 +25,5 @@ public class XJTextView extends TextView {
         if (null == text) return;
         setText(text);
     }
+
 }
