@@ -71,5 +71,17 @@
                 android:hint="玩家电话"
                 android:inputType="phone" />
         </android.support.design.widget.TextInputLayout>
+
+        <com.xj.mainframe.view.extendView.AlphaButton
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="50dp"
+            android:background="@color/default_title_color"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/white"
+            android:text="删除"/>
     </LinearLayout>
 </ScrollView>

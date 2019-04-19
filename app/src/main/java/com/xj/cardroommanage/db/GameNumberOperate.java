@@ -9,6 +9,7 @@ import com.xj.cardroommanage.inter.BackOperate;
 
 import org.litepal.LitePal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameNumberOperate {
@@ -28,7 +29,15 @@ public class GameNumberOperate {
             public void run() {
                 GameNumber cf = getGameNumber(gn.name);
                 if (cf != null) {
-                    cf.price = gn.price;
+                    cf.source=gn.source;
+                    cf.phone=gn.phone;
+                    cf.userName=gn.userName;
+                    cf.price=gn.price;
+                    cf.classfiy=gn.classfiy;
+                    cf.state=gn.state;
+                    cf.state=gn.state;
+                    cf.startTime=gn.startTime;
+                    cf.endTime=gn.endTime;
                     cf.update(cf.id);
                 } else {
                     gn.save();
@@ -58,7 +67,7 @@ public class GameNumberOperate {
     }
 
     public static GameNumber getGameNumber(String name) {
-        Cursor cursor = LitePal.findBySQL("select id,source,phone,userName,classfiy,name,price,state,startTime,endTime from GameNumber where name='" + name + "'");
+        Cursor cursor = LitePal.findBySQL("select id,source,phone,userName,GameNumber,name,price,state,startTime,endTime from GameNumber where name='" + name + "'");
         GameNumber gn = null;
         if (cursor.moveToNext()) {
             gn = getModel(cursor);

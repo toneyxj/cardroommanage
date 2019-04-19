@@ -80,7 +80,7 @@ public class MaJiangFragment extends BaseFragment implements AdapterView.OnItemC
     public void onclickView(View view) {
         switch (view.getId()) {
             case R.id.add_view:
-                ClassfiyActivity.startActivity(getContext(), "");
+                GameActivity.startActivity(getContext(), "");
                 break;
             default:
                 break;

@@ -35,4 +35,18 @@
             android:inputType="numberDecimal"/>
     </android.support.design.widget.TextInputLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <com.xj.mainframe.view.extendView.AlphaButton
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:background="@color/default_title_color"
+        android:textSize="@dimen/sp18"
+        android:textColor="@color/white"
+        android:text="删除"/>
 </LinearLayout>

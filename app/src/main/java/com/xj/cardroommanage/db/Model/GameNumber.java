@@ -33,7 +33,7 @@ public class GameNumber extends LitePalSupport implements Parcelable {
     /**
      * 游戏桌命名
      */
-    @Column(unique = true)
+    @Column(unique = true,nullable = true)
     public String name;
 
     public float price = 0.0f;
@@ -59,6 +59,7 @@ public class GameNumber extends LitePalSupport implements Parcelable {
         }
         return value;
     }
+
 
     @Override
     public int describeContents() {

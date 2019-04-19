@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.xj.mainframe.BaseApplication;
@@ -27,11 +28,16 @@ import com.xj.refuresh.util.DesignUtil;
 public class ListDialog extends Dialog implements View.OnClickListener {
     private TextView titleview;// dialog显示文字控件
     private LinearLayout list_item;// dialog显示文字控件
+    private ScrollView scroll_view;
     private Button qiut;// 确定
     private String title;// 标题
     private String[] hints;// 提示内容
     private ClickListItemListener listener;
+    private Object tag=null;
 
+    public void setTag(Object tag) {
+        this.tag = tag;
+    }
 
     public ListDialog(Context context, int theme, String title,
                       ClickListItemListener listener, String... hints) {
@@ -46,6 +52,7 @@ public class ListDialog extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.dialog_list);
+        scroll_view = (ScrollView) findViewById(R.id.scroll_view);
         list_item = (LinearLayout) findViewById(R.id.list_item);
         titleview = (TextView) findViewById(R.id.title);
         qiut = (Button) findViewById(R.id.qiut);
@@ -58,18 +65,18 @@ public class ListDialog extends Dialog implements View.OnClickListener {
     private void addTexts(Context context){
         list_item.removeAllViews();
         int SHeight= DensityUtil.getScreenH(context);
-        int height=SHeight/25;
+        int height=SHeight/20;
         int pading=DensityUtil.dip2px(getContext(),12);
         int i=0;
 
+        if (hints.length>5){
+            scroll_view.getLayoutParams().height=height*5;
+        }
         for (String txt:hints) {
             AlphaTextview textView = new AlphaTextview(context);
-            LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            params.leftMargin=height;
-            params.rightMargin=height;
+            LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height);
             textView.setLayoutParams(params);
-            textView.setTextSize(getContext().getResources().getDimension(R.dimen.sp16));
-            textView.setPadding(0,pading,0,pading);
+            textView.setTextSize(height/6);
             textView.setTextColor(Color.BLACK);
             textView.setGravity(Gravity.CENTER);
             textView.setTag(i);
@@ -124,11 +131,12 @@ public class ListDialog extends Dialog implements View.OnClickListener {
             try {
                 int index= (int) v.getTag();
                 if (listener!=null){
-                    listener.onClickItem(index);
+                    listener.onClickItem(tag,index);
                 }
                 this.dismiss();
             }catch (Exception e){
                 e.printStackTrace();
+                dismiss();
             }
         }
     }
@@ -140,7 +148,7 @@ public class ListDialog extends Dialog implements View.OnClickListener {
     }
 
     public interface ClickListItemListener {
-        void onClickItem(int position);
+        void onClickItem(Object tag,int position);
     }
 }
 
